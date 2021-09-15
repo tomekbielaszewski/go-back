@@ -5,7 +5,7 @@ import "github.com/spf13/cobra"
 var shortId string
 
 var downloadCmd = &cobra.Command{
-	Use:   "",
+	Use:   "download",
 	Short: "",
 	Run: func(cmd *cobra.Command, args []string) {
 
