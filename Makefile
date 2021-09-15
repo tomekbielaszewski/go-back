@@ -1,5 +1,5 @@
 build: fmt test
-	mkdir -p bin && GO111MODULE=on go build -o ./bin/goback ./cmd/goback
+	mkdir -p bin && GO111MODULE=on go build -o ./bin/goback ./cmd
 
 run: build
 	./bin/goback "$(command)"
