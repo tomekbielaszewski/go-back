@@ -6,8 +6,7 @@ import (
 )
 
 func init() {
-	listCmd.Flags().BoolVarP(&forceUpdate, "force-update", "f", false,
-		"Forces archive list update from live Glacier.")
+	listCmd.Flags().BoolVarP(&forceUpdate, "force-update", "f", false, "Forces archive list update from live Glacier.")
 	rootCmd.AddCommand(listCmd)
 }
 
