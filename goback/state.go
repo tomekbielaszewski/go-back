@@ -9,9 +9,9 @@ type archive struct {
 	size int32  `json:"size"`
 }
 
-func (a *archive) ToString() string {
-
-}
+//func (a *archive) ToString() string {
+//
+//}
 
 type state struct {
 	updated  time.Time `json:"updated"`
