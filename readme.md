@@ -29,7 +29,7 @@ I wanted something to help me organize my AWS Glacier backups.
 - [ ] Display Archive size in human friendly way
 - [ ] Display cost estimations
 - [ ] Display download cost estimations
-- [ ] Display files list and information in form of a table
+- [x] Display files list and information in form of a table
 - [ ] JSON display mode for integrations
 - [ ] Request glacier archive download
 - [ ] Display sorted archives (by size, by path, by id)
