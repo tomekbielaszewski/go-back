@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"go-back/app"
+	"log"
 	"time"
 )
 
@@ -17,7 +18,10 @@ var listCmd = &cobra.Command{
 	Short: "list backed up archives",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		var archives = app.DownloadArchiveList(app.Config)
+		var archives, err = app.DownloadArchiveList(app.Config)
+		if err != nil {
+			log.Fatal(err)
+		}
 
 		fmt.Println((&app.PrettyArchiveFormatter{}).Format(archives))
 
