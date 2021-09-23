@@ -14,5 +14,6 @@ type GobackConfig struct {
 }
 
 var Config *GobackConfig = &GobackConfig{
-	Bucket: "goback-archive",
+	Bucket:         "goback-archive",
+	NoBucketAction: EXIT,
 }
