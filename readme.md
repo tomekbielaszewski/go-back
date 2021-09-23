@@ -26,3 +26,9 @@ I wanted something to help me organize my AWS Glacier backups.
 - [ ] Notify about offline state
 - [ ] Upload whole directory by zipping it up first
 - [ ] When directory contains big number of files - ask for zipping it first
+- [ ] Display Archive size in human friendly way
+- [ ] Display cost estimations
+- [ ] Display download cost estimations
+- [ ] Display files list and information in form of a table
+- [ ] JSON display mode for integrations
+- [ ] Request glacier archive download
