@@ -1,4 +1,4 @@
-package goback
+package app
 
 import "time"
 

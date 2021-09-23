@@ -6,6 +6,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 	"github.com/spf13/cobra"
+	"go-back/app"
 	"log"
 	"time"
 )
@@ -28,7 +29,7 @@ var listCmd = &cobra.Command{
 		s3Client := s3.NewFromConfig(defaultConfig)
 
 		objects, err := s3Client.ListObjectsV2(context.TODO(), &s3.ListObjectsV2Input{
-			Bucket: aws.String("some-bucket"),
+			Bucket: aws.String(app.Config.Bucket),
 		})
 		if err != nil {
 			log.Fatal(err)
@@ -36,7 +37,7 @@ var listCmd = &cobra.Command{
 
 		log.Println("Printing stuff:")
 		for _, object := range objects.Contents {
-			log.Printf("key=%s size=%d", aws.ToString(object.Key), object.Size)
+			log.Printf("key=%s size=%d class=%s", aws.ToString(object.Key), object.Size, string(object.StorageClass))
 		}
 
 		if isUpdateForced() {
