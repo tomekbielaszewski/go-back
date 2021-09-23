@@ -2,18 +2,14 @@ package app
 
 import "time"
 
-type archive struct {
-	id   string `json:"id"`
-	name string `json:"name"`
-	md5  string `json:"md5"`
-	size int32  `json:"size"`
+type Archive struct {
+	Id     string `json:"id"`
+	Path   string `json:"path"`
+	Bucket string `json:"bucket"`
+	Size   int32  `json:"size"`
 }
 
-//func (a *archive) ToString() string {
-//
-//}
-
-type state struct {
-	updated  time.Time `json:"updated"`
-	archives []archive `json:"archives"`
+type State struct {
+	Updated  time.Time `json:"updated"`
+	Archives []Archive `json:"archives"`
 }
