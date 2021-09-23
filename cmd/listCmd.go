@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"context"
+	"fmt"
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
@@ -35,10 +36,18 @@ var listCmd = &cobra.Command{
 			log.Fatal(err)
 		}
 
-		log.Println("Printing stuff:")
-		for _, object := range objects.Contents {
-			log.Printf("key=%s size=%d class=%s", aws.ToString(object.Key), object.Size, string(object.StorageClass))
+		var archives = make([]*app.Archive, len(objects.Contents))
+		for i, object := range objects.Contents {
+			archives[i] = &app.Archive{
+				Id:     *object.ETag,
+				Path:   *object.Key,
+				Bucket: app.Config.Bucket,
+				Size:   object.Size,
+			}
 		}
+
+		var printer = &app.PrettyArchivePrinter{}
+		fmt.Println(printer.Print(archives))
 
 		if isUpdateForced() {
 			updateArchives()

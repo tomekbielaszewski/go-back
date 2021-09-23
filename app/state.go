@@ -6,7 +6,7 @@ type Archive struct {
 	Id     string `json:"id"`
 	Path   string `json:"path"`
 	Bucket string `json:"bucket"`
-	Size   int32  `json:"size"`
+	Size   int64  `json:"size"`
 }
 
 type State struct {
