@@ -46,8 +46,7 @@ var listCmd = &cobra.Command{
 			}
 		}
 
-		var printer = &app.PrettyArchivePrinter{}
-		fmt.Println(printer.Print(archives))
+		fmt.Println((&app.PrettyArchiveFormatter{}).Format(archives))
 
 		if isUpdateForced() {
 			updateArchives()

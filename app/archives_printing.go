@@ -4,13 +4,13 @@ import (
 	"github.com/jedib0t/go-pretty/v6/table"
 )
 
-type ArchivePrinter interface {
-	Print(archives []*Archive) string
+type ArchiveFormatter interface {
+	Format(archives []*Archive) string
 }
 
-type PrettyArchivePrinter struct{}
+type PrettyArchiveFormatter struct{}
 
-func (p *PrettyArchivePrinter) Print(archives []*Archive) string {
+func (p *PrettyArchiveFormatter) Format(archives []*Archive) string {
 	t := table.NewWriter()
 
 	t.AppendHeader(table.Row{"ID", "Path", "Size", "Bucket"})
@@ -23,8 +23,8 @@ func (p *PrettyArchivePrinter) Print(archives []*Archive) string {
 	return t.Render()
 }
 
-type JsonArchivePrinter struct{}
+type JsonArchiveFormatter struct{}
 
-func (p *JsonArchivePrinter) Print(archives []*Archive) string {
+func (p *JsonArchiveFormatter) Format(archives []*Archive) string {
 	return ""
 }
