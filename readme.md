@@ -32,3 +32,5 @@ I wanted something to help me organize my AWS Glacier backups.
 - [ ] Display files list and information in form of a table
 - [ ] JSON display mode for integrations
 - [ ] Request glacier archive download
+- [ ] Display sorted archives (by size, by path, by id)
+- [ ] Create bucket for archives if not exists already
