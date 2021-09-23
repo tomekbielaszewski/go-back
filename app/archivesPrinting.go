@@ -11,6 +11,10 @@ type ArchiveFormatter interface {
 type PrettyArchiveFormatter struct{}
 
 func (p *PrettyArchiveFormatter) Format(archives []*Archive) string {
+	if len(archives) == 0 {
+		return ""
+	}
+
 	t := table.NewWriter()
 
 	t.AppendHeader(table.Row{"ID", "Path", "Size", "Bucket"})
